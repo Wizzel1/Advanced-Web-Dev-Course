@@ -39,7 +39,7 @@ type ReadonlyPartialUser = ReadonlyPartial<User>; // all properties should be re
 //11) // TODO: Create a type that picks only the properties that are functions
 type FunctionProperties<T> = {
     [K in keyof T]: T[K] extends Function ? K : never;
-} [keyof T];
+}[keyof T];
 
 interface MixedObject {
     name: string;
