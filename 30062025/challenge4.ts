@@ -17,7 +17,7 @@ class Manager extends Employee {
         this.department = department;
     }
     getDetails() {
-        return `${super.getDetails()} ${this.department}`;
+        return `${super.getDetails()}, ${this.department}`;
     }
 }
 
