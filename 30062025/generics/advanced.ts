@@ -1,3 +1,11 @@
+//6) // TODO: Provide a default type for the generic parameter
+function wrapValue<T = string>(val?: T): T[] {
+    return [val as T];
+  }
+  
+  const defaultWrapped = wrapValue(); // should infer type
+
+
 //7) // TODO: Use Partial<T> to make all properties optional
 type Todo = {
     title: string;
