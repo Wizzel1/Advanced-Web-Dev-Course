@@ -19,6 +19,16 @@ class LinkedList<T> {
         this.length = 0;
     }
 
+    toString() {
+        const values: Array<T> = []
+        let current = this.head;
+        while (current) {
+            values.push(current.value)
+            current = current.next
+        }
+        return values.join(' -> ')
+    }
+
     push(next: T) {
         const newNode = new ListNode(next);
         if (!this.head) {
