@@ -5,13 +5,17 @@ type WeatherData = {
 }
 
 class OldWeatherService {
-    fetch(): WeatherData {
-        return { temperature: 20, condition: "sunny" };
+    fetch(): Promise<WeatherData> {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve({ temperature: 20, condition: "sunny" });
+            }, 1000);
+        });
     }
 }
 
 interface WeatherClient2 {
-    getCurrentWeather(): WeatherData;
+    getCurrentWeather(): Promise<WeatherData>;
 }
 
 class WeatherAdapter implements WeatherClient2 {
@@ -19,8 +23,8 @@ class WeatherAdapter implements WeatherClient2 {
     constructor(oldWeatherService: OldWeatherService) {
         this.oldWeatherService = oldWeatherService;
     }
-    getCurrentWeather(): WeatherData {
-        const data = this.oldWeatherService.fetch();
+    async getCurrentWeather(): Promise<WeatherData> {
+        const data = await this.oldWeatherService.fetch();
         return {
             temperature: data.temperature,
             condition: data.condition,

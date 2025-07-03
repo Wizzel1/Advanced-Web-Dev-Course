@@ -17,14 +17,23 @@ class Square2 implements Shape2 {
     }
 }
 
+class Triangle2 implements Shape2 {
+    name: string = "triangle";
+    draw(): void {
+        console.log("Drawing triangle");
+    }
+}
+
 
 class ShapeFactory {
-    public create(type: "circle" | "square"): Shape2 {
+    public create(type: "circle" | "square" | "triangle"): Shape2 {
         switch (type) {
             case "circle":
                 return new Circle2();
             case "square":
                 return new Square2();
+            case "triangle":
+                return new Triangle2();
         }
     }
 }
