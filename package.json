@@ -8,19 +8,24 @@
     "test:once": "jest --watchAll=false",
     "build": "tsc",
     "start": "node dist/26062025/testasd.js",
-    "dev": "tsc && node dist/26062025/testasd.js"
+    "dev": "tsc && node dist/26062025/testasd.js",
+    "cli": "ts-node cli-example.ts",
+    "cli:strategy": "ts-node 03072025/patterns/strategy.ts calculate"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
     "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.10",
     "jest": "^30.0.3",
     "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },
   "dependencies": {
     "axios": "^1.10.0",
+    "commander": "^14.0.0",
     "zod": "^3.25.67"
   }
 }
